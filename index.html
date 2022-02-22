@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
+  <link href="./styles.css" rel="stylesheet">
+  <title>Hello World!</title>
+  <style>
+    
+    html,body{
+      width: 100vw;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .netflix,
+    .disney {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .netflix a,
+    .disney a {
+      color: aliceblue;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 3;
+    }
+
+    .container::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      background-color: rgba(0, 0, 0, .5);
+      z-index: 2;
+    }
+
+    .netflix {
+      background-image: url(netflex_bg.jpg);
+      width: 50vw;
+
+    }
+
+    .disney {
+      background-image: url(original.jpg);
+      background-position: right;
+
+      width: 50vw;
+    }
+
+    .logo_img {
+      width: 30vw;
+      height: auto;
+    }
+    .test{
+      z-index: 2;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="netflix">
+      <a href="http://www.netflix.com/hk" target="_blank">
+        <img class="logo_img" src="./netflex.png" alt="">
+        去Netflix
+      </a>
+    </div>
+    <div class="disney">
+      <a href="http://www.preview.disneyplus.com">
+        <img class="logo_img" src="./original.svg" alt="">
+        去Disney+
+      </a>
+    </div>
+    <div class="test">
+      <a href="http://www.baidu.com">百度一下</a>
+    </div>
+  </div>
+  <!-- <h1>Hello World!</h1> -->
+  <!-- We are using Node.js <span id="node-version"></span>,
+    Chromium <span id="chrome-version"></span>,
+    and Electron <span id="electron-version"></span>. -->
+
+  <!-- You can also require other files to run in this process -->
+  <!-- <iframe width="800" height="600" src="www.baidu.com" frameborder="0"></iframe> -->
+  <script src="./renderer.js"></script>
+</body>
+
+</html>
